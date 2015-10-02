@@ -1,0 +1,44 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage[letterpaper, margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{caption}
+
+\title{ECE 411 - Assignment 2\\Cissoid Drawing using Integer Arithmetic}
+\date{2015-10-01}
+\author{Mark Langen - 1293728}
+
+\begin{document}
+	\maketitle
+	\newpage
+
+	\section{Derivation of Incremental Cissoid Drawing Algorithm}
+	\paragraph{}
+	Here I show the derivation of the incremental algorithm for drawing the Cissoid using only integer arithmetic. The algorithm is designed via the midpoint method. We start with the Cissoid equation, parameterized by $k$:
+	
+	$$x^3 + (x - 2k)y^2 = 0$$
+	
+	Which is equal to zero while exactly on the curve. We then consider the function $f(x, y)$, the values of the Cissoid equation for all points: 
+	
+	$$ f(x, y) = x^3 + (x - 2k)y^2 $$
+	
+	\paragraph{}
+	First we determine which values of $F$ at the midpoints correspond to which regions of the image the midpoints, and thus the next pixel, must fall in. To do this, we write the expression for the true intersection of the line with the pixel grid (which = 0) in terms of the value at the midpoint:
+	
+	$$ F(M_1) $$
+	
+	\paragraph{}
+	Now we inspect inspect the values at the midpoint, and work on deriving an incremental integer form for those $d_{1_i}$ and $d_{2_i}$ values. First, we need to find the initial values of $d_{1_i}$ and $d_{2_i}$ at at the first midpoint. Note that we draw the initial pixel at the coordinate $(0, 0)$:
+	
+	\begin{equation}
+	\begin{aligned}
+		d_{1_0} &= f(M_{1_0}) = f(1, \tfrac{1}{2}) \\
+		        &= (1)^3 + ((1) - 2k)(\tfrac{1}{2})^2 \\
+		        &= 1 + \tfrac{1}{4}(1 - 2k) \\
+		d_{1_0}^{'} &= 4\times d_{1_0} \\
+		            &= 5 + 2k
+ 	\end{aligned}
+	\end{equation}	
+	
+\end{document}
